@@ -1,0 +1,78 @@
+<%- include("partials/header.ejs") %>
+
+<div class="main">
+    <div class="container landing">
+        <div class="row">
+            <div class="col col-md-12">
+              <h1><strong>Top 15 Favorite Songs</strong></h1>
+              <a href="/top15fav" class="seeall">see all</a>
+            </div>
+            <% sortFav.slice(0, 6).forEach(function(songs){ %> 
+              <div class="col-md-2">
+                <div class="box-fav">
+                  <div class="fav-song">
+                    <a href="/song/<%= songs._id %>">
+                      <img src="<%= songs.imgSong %>" class="imgsong-landing" id="img-song" width="200px" height="200px">
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="text pt-1 info-favsong m-0">
+                  <div class="ellipsis">
+                    <span class="card-text" id="name-song"><strong><%= songs.nameSong %></strong></span>
+                  </div>
+                  <div class="ellipsis">
+                    <span class="card-text"><a href="/artist/<%= songs.artist.id %>" class="linkto-artist" id="name-artist"><%= songs.artist.name %></a></span>
+                  </div>
+                </div>
+                <div>
+                  <small class="text-muted"><i class="fa fa-heart"></i> <%= songs.fav %></small>
+                  <p class="d-inline play-button-landing">
+                    <% if(currentUser){ %>
+                      <i class="fa fa-play" id="icon"></i>
+                      <div hidden data-song="<%= songs.audio %>" id="current-audio">
+                      </div>
+                      <% } else{ %>
+                        <a href="/login"><i class="fa fa-play play" id="icon"></i></a>
+                      <% }%> 
+                  </p>
+                  
+                </div>
+              </div>
+          <% }); %> 
+        </div>
+        <div class="row">
+          <div class="col col-md-12">
+            <h1><strong>Artist</strong></h1>
+            <a href="/allArtist" class="seeall">see all</a>
+          </div>
+          <% artists.slice(0, 8).forEach(function(artist){ %>
+          <div class="col-md-3 all-artist">
+            <a href="/artist/<%= artist._id %>">
+              <img class="artist-img" src="<%= artist.img %>" width="200" height="200">
+            </a>
+            <div class="text">
+              <p class="artist-text"><%= artist.name %></p>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+        <div class="row">
+          <div class="col col-md-12">
+            <h1><strong>Category</strong></h1>
+          </div>
+          <% genre.forEach(function(genre){ %>
+            <div class="col-md-2">
+              <a href="/song/genre/<%= genre %> " class="text-decoration-none">
+                <div class="card genre">
+                  <div class="card-body text-decoration-none">
+                    <p class="card-text text-center text-genre text-decoration-none"><%= genre %></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          <% }) %> 
+        </div>
+    </div>
+</div>
+<%- include("partials/footer.ejs") %> 

@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+    <h1 class="text-center"><strong>Login</strong></h1>
+    <form action="/login" method="POST">
+        <div class="mb-3 form--login">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Your username">
+        </div>
+        <div class="mb-3 form--login">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Your password">
+        </div>
+        <div class="form--login">
+            <button type="submit" class="btn btn-outline-success">Login</button>
+            <a href="/" class="goback">Go back</a>
+        </div>
+    </form>
+    <div class="no--account mt-5 d-flex">
+        <h5 class="text-center d-inline"><strong>Don't have an account?</strong></h5>
+        <a href="/register" class="regis-button d-inline">Register</a>
+    </div>
+</div>
+<%- include("partials/footer.ejs") %> 

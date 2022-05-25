@@ -1,0 +1,57 @@
+<%- include("../partials/header.ejs") %>
+<div class="container">
+    <div class="info-song">
+        <div class="song-img">
+            <img src="<%= infoSong.imgSong %>" id="img-song" width="300px" height="300px">
+        </div>
+        <div class="song-text">
+            <p class="name-song" id="name-song"><strong><%= infoSong.nameSong %></strong></p>
+            <p><a href="/artist/<%= infoSong.artist.id %>" class="linkto-artist" id="name-artist"><%= infoSong.artist.name %></a></p>
+            <div class="d-flex">
+                <span class="btn pt-0">
+                    <div hidden data-song="<%= infoSong.audio %>" id="current-audio">
+                    
+                    </div>
+                    <% if(currentUser){ %>
+                      <i class="fa fa-play px-0 pt-4" id="icon"></i>
+                    <% } else{ %>
+                      <a href="/login"><i class="fa fa-play px-0 pt-4 play" id="icon"></i></a>
+                    <% } %>
+                </span>
+                <span class="px-4" >
+                    <% if(currentUser){ %>
+                        <% if(songUser.includes(infoSong._id)){ %>
+                            <form action="/user/unfavorite/<%= infoSong._id %>" method="POST" class="d-inline">
+                                <button class="onfav bg-transparent border-0">
+                                    <i class="fa fa-heart mt-4"></i>
+                                </button>
+                            </form>
+                        <% }else{%>
+                            <form action="/user/favorite/<%= infoSong._id %>" method="POST" class="d-inline">
+                                <button class="unfav bg-transparent border-0">
+                                    <i class="fa fa-heart mt-4"></i>
+                                </button>
+                            </form>
+                        <% } %>
+                    <% }else{%>
+                        <form action="/user/favorite/<%= infoSong._id %>" method="POST" class="d-inline">
+                            <button class="unfav bg-transparent border-0">
+                                <i class="fa fa-heart mt-4"></i>
+                            </button>
+                        </form>
+                    <% } %>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="song-lyric mt-5">
+        <div class="title-lyric">
+            <p>เนื้อเพลง</p>
+        </div>
+        <div class="lyric">
+            <p><%= infoSong.lyric %></p>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>

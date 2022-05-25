@@ -1,0 +1,28 @@
+<%- include("../partials/header.ejs") %>
+<div class="container">
+    <h1>Edit song</h1>
+    <form action="/song/<%= song._id %>?_method=PUT" method="POST">
+        <div class="mb-3">
+            <label class="form-label">Song</label>
+            <input type="text" class="form-control" name="song[nameSong]" placeholder="<%= song.nameSong %>", value="<%= song.nameSong %>">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Genre</label>
+            <input type="text" class="form-control" name="song[type]" placeholder="<%= song.type %>", value="<%= song.type %>">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Lyric</label>
+            <textarea type="text" class="form-control" name="song[lyric]" placeholder="<%= song.lyric %>"><%= song.lyric %></textarea>
+        </div>
+        <div class="mb-3">
+            <div>
+                <label class="form-label">Image URL(song's image)</label>
+            </div>
+            <img src="<%= song.imgSong %>" height="300px">
+            <input type="text" class="form-control" name="song[imgSong]" placeholder="<%= song.imgSong %>", value="<%= song.imgSong %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/" class="text-decoration-none text-secondary">Go back</a>
+    </form>
+</div>
+<%- include("../partials/footer.ejs") %> 

@@ -1,0 +1,38 @@
+<%- include("../partials/header.ejs") %>
+<div class="container">
+    <h1>Add new song</h1>
+    <form action="/song" method="POST" enctype="multipart/form-data">
+        <label class="form-label">Artist</label>
+        <div class="mb-3">
+            <input type="text" list="artists" name="artist" class="select-artist" required>
+                <datalist id="artists">
+                <% artists.forEach(function(artist){ %>
+                    <option><%= artist.name %></option>
+                <% }) %>
+                </datalist>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Song</label>
+            <input type="text" class="form-control" name="song[nameSong]" placeholder="Type a song" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Genre</label>
+            <input type="text" class="form-control" name="song[type]" placeholder="Type a genre" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Lyric</label>
+            <textarea type="text" class="form-control" name="song[lyric]" placeholder="Type a lyric"></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Image URL(song's image)</label>
+            <input type="text" class="form-control" name="song[imgSong]" placeholder="Image URL" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Audio</label>
+            <input type="file" class="form-control" name="audio" accept="audio/mp3" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/" class="text-decoration-none text-secondary">Go back</a>
+    </form>
+</div>
+<%- include("../partials/footer.ejs") %> 

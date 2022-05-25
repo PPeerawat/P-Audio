@@ -1,0 +1,128 @@
+<%- include("../partials/header.ejs") %>
+<% let v = 1; %> 
+
+<div class="container">
+    <div class="title-song">
+        <div class="title-img">
+            <img src="https://st3.depositphotos.com/9543826/13180/v/600/depositphotos_131807428-stock-illustration-15-number-logo-icon.jpg" width="200px" height="200px">
+        </div>
+        <div class="title-name">
+            <p><strong>Top 15 favorite songs</strong></p>
+        </div>
+    </div>
+
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">Title</th>
+                <th scope="col">Artist</th>
+                <th scope="col"><img src="https://cdn-icons-png.flaticon.com/128/6437/6437573.png" class="align-items-center" height="20px"></th>
+                <th scope="col" class="text-center">Like</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% let count = 0 %> 
+            <% sortFav.slice(0, 15).forEach(function(song){ %>
+              <div hidden data-song="<%= song.audio %>" id="current-audio">
+                      
+              </div>
+              <% count++; 
+                 v++;
+                 let format = song.fav; %>
+                 
+              <tr>
+                <td class="p-4 ps-0 text-center"><%= count %></td>
+                <td><img class="p-auto" src="<%= song.imgSong %>" id="img-song" width="70px" height="70px"></td>
+                <td class="p-4 ps-0"><a class="linkto-song" id="name-song" href="/song/<%= song._id %>"><%= song.nameSong %></a></td>
+                <td class="p-4 ps-0"><a class="linkto-artist" id="name-artist" href="/artist/<%= song.artist.id %>"><%= song.artist.name %></a></td>
+                <td class="p-4 ps-0" id="songlength"></td>
+                <% if(format > 1000){
+                  format = format / 1000; %>
+                  <td class="p-4 ps-0 text-center" > <i class="fa fa-heart"></i><%= format %>k </td>
+                <% } else{ %>
+                  <td class="p-4 ps-0 text-center" > <i class="fa fa-heart"></i><%= format %></td>
+                <% }%>
+                <td>
+                  <% if(currentUser){ %>
+                    <i class="fa fa-play p-4 px-0" id="icon"></i>
+                  <% } else{ %>
+                    <a href="/login"><i class="fa fa-play p-4 px-0 play" id="icon"></i></a>
+                  <% } %>
+                </td>
+                <td>
+                  <% if(currentUser){ %>
+                        <% if(songUser.includes(song._id)){ %>
+                            <form action="/user/unfavorite/<%= song._id %>" method="POST" class="d-inline">
+                                <button class="onfav bg-transparent border-0">
+                                    <i class="fa fa-heart mt-4"></i>
+                                </button>
+                            </form>
+                        <% }else{%>
+                            <form action="/user/favorite/<%= song._id %>" method="POST" class="d-inline">
+                                <button class="unfav bg-transparent border-0">
+                                    <i class="fa fa-heart mt-4"></i>
+                                </button>
+                            </form>
+                        <% } %>
+                    <% }else{%>
+                        <form action="/user/favorite/<%= song._id %>" method="POST" class="d-inline">
+                            <button class="unfav bg-transparent border-0">
+                                <i class="fa fa-heart mt-4"></i>
+                            </button>
+                        </form>
+                  <% } %>
+                </td>
+                <td>
+                  <div class="dropdown">
+                    <div calss="m-1">
+                      <a href="#" class="three-dots"><i class="fa fa-ellipsis-v mt-4"></i></a>
+                    </div>
+                    <div class="dropdown-content">
+                      <p><a href="/artist/<%= song.artist.id %>" class="nav-link">View artist</a></p>
+                    </div>
+                  </div>
+                </td>
+                <% if(currentUser) { %>
+                    <% if(currentUser.isAdmin === true){ %>
+                    <td>
+                      <div class="btn-group mt-3">
+                        <a href="/song/<%= song._id %>/edit" class="btn btn-sm btn-outline-light">Edit</a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<%= v %>">
+                          Delete
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal<%= v %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete song</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Are you sure you want to delete "<strong><%= song.nameSong %></strong>" ?
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <form action="/song/<%= song._id %>?_method=DELETE" method="POST">
+                                  <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <% } %>
+                <% }%>
+                
+              </tr>
+            </tbody>
+            <% }) %>
+        </table>
+</div>
+
+<%- include("../partials/footer.ejs") %>

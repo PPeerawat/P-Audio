@@ -1,0 +1,59 @@
+</body>
+<% if(currentUser){ %>
+<div class="phone" id="phone">
+  <div class="inner">
+    <div class="header">
+      <button class="button" id="hide-playbar">
+        <img src="https://cdn-icons-png.flaticon.com/128/43/43625.png" width="10px" height="10px">
+      </button>
+      <h2 class="title">Playing</h2>
+      <button class="button volume-option">
+        <img src="https://cdn-icons.flaticon.com/png/128/2985/premium/2985082.png?token=exp=1652682477~hmac=541b235ac88f1780c74dc51cd066ca54" width="20px" height="20px">
+      </button>
+    </div>
+    
+    <div class="cover">
+      <img src="" id="img-inbar" class="">
+    </div>
+    
+    <div class="info">
+      <h3 class="song ellipsis" id="nameSong-inbar"></h3>
+      <h4 class="artist ellipsis" id="nameArtist-inbar"></h4>
+    </div>
+    
+    <div class="time">
+      <input type="range" min="0" class="bar"></input>
+    </div>
+    
+    <div class="control">
+      <button class="control-button prev">
+        <img src="https://cdn-icons-png.flaticon.com/128/318/318276.png" id="prev">
+      </button>
+      
+      <button class="play-button">
+        <i class="pt-2 fa fa-play" id="play-bar"></i>
+      </button>
+      
+      <button class="control-button next">
+        <img src="https://cdn-icons-png.flaticon.com/128/318/318275.png" id="next">
+      </button>
+    </div>
+    
+  </div>
+  
+</div>
+  <div class="playbar-minimum hide" id="minimum">
+    <img src="https://cdn-icons-png.flaticon.com/128/271/271220.png" width="20px" height="20px">
+  </div>
+  <div class="vol-button volume hide">
+    <img id="mute" src="https://cdn-icons.flaticon.com/png/128/2985/premium/2985082.png?token=exp=1652682477~hmac=541b235ac88f1780c74dc51cd066ca54" width="20px" height="20px">
+    <div class="">
+      <input type="range" min="0" max="0.3" step="0.001" value="0.08" id="slide-vol"></input>
+    </div>
+  </div>
+<% } %> 
+
+  <audio id="audio-play">
+    <source src="/upload/4.00.mp3" type="audio/mp3">
+  </audio>
+</head>

@@ -1,0 +1,23 @@
+<%- include("../partials/header.ejs") %>
+<div class="container pl-5 pr-5">
+    <h1 class="text-center"><strong>Edit your information</strong></h1>
+    <form action="/user/<%= user._id %>?_method=PUT" method="POST" require>
+        <div class="mb-3 form--register">
+            <label class="form-label">First name</label>
+            <input type="text" class="form-control" name="user[firstName]" placeholder="<%= user.firstName %>", value="<%= user.firstName %>">
+        </div>
+        <div class="mb-3 form--register">
+            <label class="form-label">Last name</label>
+            <input type="text" class="form-control" name="user[lastName]" placeholder="<%= user.lastName %>", value="<%= user.lastName %>">
+        </div>
+        <div class="mb-3 form--login">
+            <label class="form-label">E-mail address</label>
+            <input type="email" class="form-control" name="user[email]" placeholder="<%= user.email %>", value="<%= user.email %>">
+        </div>
+        <div class="form--register">
+            <button type="submit" class="btn btn-outline-light">Submit</button>
+            <a href="/" class="goback">Go back</a>
+        </div>
+    </form>
+</div>
+<%- include("../partials/footer.ejs") %>

@@ -1,0 +1,20 @@
+<%- include("../partials/header.ejs") %>
+<div class="container">
+    <h1>Edit artist</h1>
+    <form action="/artist/<%= artist._id %>?_method=PUT" method="POST">
+        <div class="mb-3">
+            <label class="form-label">Artist</label>
+            <input type="text" class="form-control" name="artist[name]" placeholder="<%= artist.name %>", value="<%= artist.name %>">
+        </div>
+        <div class="mb-3">
+            <div>
+                <label class="form-label">Image URL(Artist's image)</label>
+            </div>
+            <img src="<%= artist.img %>" height="300px">
+            <input type="text" class="form-control" name="artist[img]" placeholder="<%= artist.img %>", value="<%= artist.img %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/">Go back</a>
+    </form>
+</div>
+<%- include("../partials/footer.ejs") %> 

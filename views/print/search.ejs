@@ -1,0 +1,126 @@
+<%- include("../partials/header.ejs") %>
+<div class="container">
+    <h4 class="text-center mt-5 mb-5">Searching for "<strong><%= search %></strong>" </h4>
+
+    <div class="container">
+        <div class="row">
+          <div class="col col-12 col-md-4 ">
+            <div class="container artist-search pt-2">
+                <h2><strong>Artists</strong></h2>
+                <% if(artists.length > 0){ %>
+                    <% artists.forEach(function(artist){ %>
+                        <% let sumSong = 0; %> 
+                        <% artist.songs.forEach(function(song){
+                            sumSong++;
+                        }); %> 
+                        <div class="row">
+                            <div class="col col-12 col-md-12">
+                                <div class="table-artist d-flex">
+                                    <div class="align-items-center d-inline">
+                                        <img src="<%= artist.img %>" class="rounded-circle " width="100px" height="100px">
+                                    </div>
+                                    <div class="foundartist d-inline">
+                                        <p class="mb-0"><a href="/artist/<%= artist._id %>" class="linkto-artist"><%= artist.name %></a></p>
+                                        <% if(sumSong <= 1){ %>
+                                        <span class="sumsong"><%= sumSong %>song</span>
+                                        <% } else{ %>
+                                        <span class="sumsong"><%= sumSong %>songs</span>
+                                        <% } %> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% }else{ %>
+                    <div class="row">
+                        <div class="col col-12 col-md-12">
+                            <div class="table-artist d-flex">
+                                <div class="not-found align-items-center">
+                                    <p>Not found for "<%= search %>"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %> 
+                
+            </div>
+          </div>
+          <div class="col col-12 col-md-8">
+            <div class="container song-search pt-2">
+                <h2><strong>Songs</strong></h2>
+                <% if(songs.length > 0){ %>
+                    <% let countSong = 0; %> 
+                    <% songs.forEach(function(song){
+                        countSong++; %>
+                        <div hidden data-song="<%= song.audio %>" id="current-audio">
+                                        
+                        </div>
+                    <div class="row">
+                        <div class="col col-12 col-md-12 mb-0 mt-3">
+                            <div class="table-song">
+                                <div class="num d-inline">
+                                    <span><%= countSong %></span>
+                                </div>
+                                <img src="<%= song.imgSong %>" id="img-song" hidden>
+                                <div class="foundsong d-inline">
+                                    <span class="mb-0"><a href="/song/<%= song._id %> " class="text-dark linkto-song" id="name-song" ><%= song.nameSong %></a></span>    
+                                </div>
+                                <div class="play-search d-inline float-end me-5">
+                                    <% if(currentUser){ %>
+                                        <i class="fa fa-play p-4 px-0" id="icon"></i>
+                                    <% } else{ %>
+                                        <a href="/login"><i class="fa fa-play p-4 px-0 play" id="icon"></i></a>
+                                    <% } %>
+                                    <% if(currentUser){ %>
+                                        <% if(songUser.includes(song._id)){ %>
+                                            <form action="/user/unfavorite/<%= song._id %>" method="POST" class="d-inline">
+                                                <button class="onfav bg-transparent border-0">
+                                                    <i class="fa fa-heart mt-4 px-2"></i>
+                                                </button>
+                                            </form>
+                                        <% }else{%>
+                                            <form action="/user/favorite/<%= song._id %>" method="POST" class="d-inline">
+                                                <button class="unfav bg-transparent border-0">
+                                                    <i class="fa fa-heart mt-4 px-2"></i>
+                                                </button>
+                                            </form>
+                                        <% } %>
+                                    <% }else{%>
+                                        <form action="/user/favorite/<%= song._id %>" method="POST" class="d-inline">
+                                            <button class="unfav bg-transparent border-0">
+                                                <i class="fa fa-heart mt-4 px-2"></i>
+                                            </button>
+                                        </form>
+                                    <% } %>
+                                    
+                                    <div class="dropdown">
+                                        <div class="m-1">
+                                        <a href="#" class="three-dots pr-1"><i class="fa fa-ellipsis-v mt-4"></i></a>
+                                        </div>
+                                        <div class="dropdown-content">
+                                        <p><a href="/artist/<%= song.artist.id %>" class="nav-link">View artist</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="/artist/<%= song.artist.id %>" class="artistname ps-5 d-block" id="name-artist"><%= song.artist.name %></a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                <% }else{ %>
+                    <div class="row">
+                        <div class="col col-12 col-md-12">
+                            <div class="table-artist d-flex">
+                                <div class="not-found align-items-center">
+                                    <p>Not found for "<%= search %>"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %> 
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer.ejs") %> 

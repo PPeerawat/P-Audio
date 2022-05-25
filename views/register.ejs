@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+<div class="container pl-5 pr-5">
+    <h1 class="text-center"><strong>Register</strong></h1>
+    <form action="/register" method="POST" require>
+        <div class="mb-3 form--register">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Your username">
+        </div>
+        <div class="mb-3 form--register">
+            <label class="form-label">First name</label>
+            <input type="text" class="form-control" name="firstName" placeholder="Your first name">
+        </div>
+        <div class="mb-3 form--register">
+            <label class="form-label">Last name</label>
+            <input type="text" class="form-control" name="lastName" placeholder="Your last name">
+        </div>
+        <div class="mb-3 form--login">
+            <label class="form-label">E-mail address</label>
+            <input type="email" class="form-control" name="email" placeholder="Your E-mail address">
+        </div>
+        <div class="mb-3 form--register">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Your password">
+        </div>
+        <!-- <div class="mb-3 form--register">
+            <label class="form-label">Admin code</label>
+            <input type="text" class="form-control" name="adminCode" placeholder="Type admin code here">
+        </div> -->
+        <div class="form--register">
+            <button type="submit" class="btn btn-outline-light">Register</button>
+            <a href="/" class="goback">Go back</a>
+        </div>
+    </form>
+    <div class="have-account mt-5 d-flex">
+        <h5 class="text-center d-inline"><strong>Have an account?</strong></h5>
+        <a href="/login" class="login-button d-inline">Login</a>
+    </div>
+</div>
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,24 @@
+<%- include("../partials/header.ejs") %>
+<div class="container">
+    <div class="user--page m-5">
+        <h1><strong>Account Overview</strong></h1>
+        <table class="table mt-5">
+            <tbody>
+              <tr>
+                <td class="info-username">Username</td>
+                <td><%= user.username %></td>
+              </tr>
+              <tr>
+                <td class="info-name">First name | Last name</td>
+                <td><%= user.firstName + ' ' + user.lastName %></td>
+              </tr>
+              <tr>
+                <td class="info-email">Email address</td>
+                <td><a href="mailto: <%= user.email %>" class="text-decoration-none text-dark"><%= user.email %></a> </td>
+              </tr>
+            </tbody>
+        </table>
+        <a href="/user/<%= user._id %>/edit" class="btn btn-outline-secondary">Edit your account</a>
+    </div>
+</div>
+<%- include("../partials/footer.ejs") %> 

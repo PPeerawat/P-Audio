@@ -1,0 +1,692 @@
+.index-image{
+    object-fit: cover;
+}
+
+body{
+    font-family: Prompt;
+    background-color: #c4bca7;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: scroll;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.container img{
+    object-fit: cover;
+}
+
+
+
+/* landing ---------------------------------------*/
+.artist-img, .song-img{
+    border-radius: 50%;
+}
+
+.artist-img, .artist-text{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-text{
+    margin-bottom: 0%;
+    font-size: 12px;
+}
+
+.row{
+    margin-bottom: 3%;
+}
+
+.all-artist{
+    text-align: center;
+}
+
+.col{
+    margin-bottom: 2%;
+}
+
+.seeall{
+    float: right;
+    text-decoration: none;
+    color: gray;
+}
+
+.seeall:hover{
+    text-decoration: underline;
+    color: gray;
+}
+
+.imgsong-landing{
+    border-radius: 5%;
+    box-shadow: 0 15px 25px  #9d9787;
+    transition: all ease 0.4s;
+}
+
+.imgsong-landing.imgsong-landing:hover{
+    box-shadow: none;
+    transform: scale(0.98) translateY(5px);
+}
+
+.fav-song:hover .play-hover{
+    opacity: 1;
+}
+
+.fav-song:hover .imgSong-landing{
+    opacity: 0.3;
+}
+
+.info-favsong{
+    display: block;
+    width: 100%;
+}
+
+.play-button-landing{
+    padding-left: 5em;
+    font-size: 20px;
+}
+
+.ellipsis{
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#icon{
+    cursor: pointer;
+}
+
+.genre{
+    border: 0;
+    background-image: linear-gradient(#9d9170, #96938a);
+    padding-top: 80px;
+    padding-bottom: 80px;
+    align-items: center;
+    border-radius: 5%;
+    text-decoration: none;
+    box-shadow: 0 15px 25px  #9d9787;
+    transition: all ease 0.4s;
+}
+
+.genre:hover{
+    box-shadow: none;
+    transform: scale(0.98) translateY(5px);
+}
+
+.text-genre{
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+/* ---------------------------------------------- */
+
+
+
+/* info-artist  info-song ------------------------*/
+.info-artist, .info-song, .title-song{
+    display: inline-flex;
+}
+
+.artist-img, .title-img{
+    margin: 3%;
+}
+
+.artist-name, .title-name{
+    margin-left: 3%;
+    margin-top: 10%;
+    font-size: 4em;
+    font-family: Prompt;
+    min-width: 100%;
+    height: 100%;
+}
+
+.name-song{
+    font-size: 3em;
+    font-family: Prompt;
+    min-width: 100%;
+}
+
+.song-text{
+    margin-left: 3%;
+    margin-top: 10%;
+    font-family: Prompt;
+    min-width: 100%;
+}
+
+.title-lyric{
+    font-size: 2.5em;
+}
+
+.lyric{
+    white-space: pre-line;
+}
+
+.play, .three-dots, .unfav{
+    color: black;
+}
+
+.onfav{
+    color: red;
+}
+
+.onfav:hover{
+    color: black;
+}
+
+.three-dots:hover{
+    color: black;
+}
+
+.play:hover{
+    color: black;
+}
+
+.unfav:hover{
+    color: #ff0000;
+}
+
+/* ---------------------------------------------- */
+
+
+
+/* all-artist  song-15fav ----------------------- */
+.table, tbody, .table-hover{
+    border-style: hidden;
+}
+
+.fav15{
+    text-decoration: none;
+    color: black;
+}
+
+.count-song{
+    font-size: 20px;
+}
+
+.linkto-artist, .linkto-song{
+    text-decoration: none;
+    color: black;
+}
+
+.linkto-song:hover, .linkto-artist:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+/* ---------------------------------------------- */
+
+
+
+/* header --------------------------------------- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    text-decoration: underline;
+}
+  
+.dropdown-content {
+    display: none;
+    font-size: 90%;
+    position: absolute;
+    background-color: #c4bca7;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    padding-left: 0px;
+    z-index: 1;
+}
+
+.nav-link:hover{
+    color: black;
+    text-decoration: underline;
+    background-color: #a6a092;
+}
+
+.dropdown-content a{
+    color: black;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* ---------------------------------------------- */
+
+
+
+/* login  register ------------------------------ */
+.form--login, .form--register{
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.no--account{
+    padding-left: 38%;
+    padding-right: 35%;
+}
+
+.have-account{
+    padding-left: 40%;
+    padding-right: 35%;
+}
+
+.goback{
+    text-decoration: none;
+    color: gray;
+}
+
+.goback:hover{
+    text-decoration: underline;
+    color: gray;
+}
+
+.regis-button{
+    color: rgb(0, 162, 0);
+}
+
+.regis-button:hover{
+    color: rgb(9, 194, 9);
+}
+
+.login-button{
+    color: rgb(0, 162, 0);
+}
+
+.login-button:hover{
+    color: rgb(9, 194, 9);
+}
+/* ---------------------------------------------- */
+
+.select-artist{
+    border-radius: 5px;
+    padding: 0.4%;
+}
+
+/* search page -----------------------------------*/
+.artist-search, .song-search{
+    background-color: #9f9989;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.table-artist, .table-song{
+    display: block;
+    align-items: center;
+    padding-left: 1%;
+}
+
+.rounded-circle{
+    object-fit: cover;
+}
+
+.foundartist, .foundsong{
+    padding-left: 35px;
+}
+
+
+.sumsong, .artistname{
+    color: rgb(85, 85, 85);
+    text-decoration: none;
+}
+
+.artistname:hover{
+    color: rgb(85, 85, 85);
+    text-decoration: underline;
+}
+
+.song-search{
+    padding: 7px;
+}
+
+.play-search{
+    display: flex;
+}
+
+.not-found{
+    color: rgb(99, 99, 99);
+}
+
+/* ------------------------------------------------ */
+
+.play-song{
+    border-radius: 30%;
+    background-color: rgb(0, 160, 0);
+    padding-left: 1%;
+    padding-right: 1%;
+    
+}
+
+.play{
+    text-decoration: none;
+    color: black;
+}
+/* --------------------------------------- */
+
+/* user ------------------------------------*/
+.info-username, .info-name, .info-email{
+    color: grey;
+}
+/* ----------------------------------------- */
+
+.fav-img{
+    padding: 8%;
+}
+
+.fav-info{
+    padding-top: 5%;
+}
+
+.fav-name{
+    font-size: 4vw;
+}
+
+.count-favsong{
+    font-size: 2vw;
+}
+
+/* ---------------------------------------- */
+
+/* music play bar -------------------------------------------------------*/
+  
+  .phone {
+    position: fixed;
+    /* position: sticky; */
+    width: 250px;
+    height: 430px;
+    background-color: #f1f8fd;
+    border-radius: 3vw;
+    margin: 3vw auto;
+    box-shadow: 20px 20px 30px 0 rgba(0,0,0,0.1);
+    bottom: 0;
+    right: 2vw;
+  }
+  
+  .phone::after {
+    content: '';
+    width: 135px;
+    height: 6px;
+    background-color: #c8d4dd;
+    border-radius: 1vw;
+    display: block;
+    position: absolute;
+    bottom: .5vw;
+    left: 50%;
+    margin-left: -4.2vw;
+  }
+  
+  .inner {
+    padding: 30px 24px 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .title {
+    margin: 0;
+    line-height: 2vw;
+    font-size: 20px;
+    color: #222e51;
+  }
+
+  .fav-bar{
+      font-size: 20px;
+  }
+  
+  .button {
+    width: 35px;
+    height: 35px;
+    background-color: #f1f8fd;
+    padding: .5vw;
+    border-radius: .3vw;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #222e51;
+    box-shadow:
+      6px 6px 6px rgba(0,0,0,0.05),
+      -6px -6px 6px rgba(255,255,255,0.6),
+      inset 2px 2px 5px rgba(0,0,0,0.03),
+      inset -2px -2px 5px rgba(255,255,255,0.4);
+    transition: all 0.3s;
+  }
+  
+  .button:hover {
+    box-shadow:
+      6px 6px 6px rgba(0,0,0,0.05),
+      -6px -6px 6px rgba(255,255,255,0.6),
+      inset 3px 3px 3px rgba(0,0,0,0.03),
+      inset -3px -3px 3px rgba(223, 223, 223, 0.4);
+  }
+  
+  .button:active {
+    box-shadow:
+      6px 6px 6px rgba(0,0,0,0.05),
+      -6px -6px 6px rgba(255,255,255,0.6),
+      inset 8px 8px 8px rgba(0,0,0,0.05),
+      inset -8px -8px 8px rgba(255,255,255,0.6);
+  }
+  
+  .cover {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 10px 0 10px 0;
+    overflow: hidden;
+    border: 3px solid #f1f8fd;
+    box-shadow:
+      20px 20px 20px rgba(0,0,0,0.07),
+      -20px -20px 20px rgba(255,255,255,0.7),
+      6px 6px 6px rgba(0,0,0,0.09),
+      -6px -6px 6px rgba(255,255,255,0.9);
+  }
+  
+  .cover::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f1f8fd;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -15px 0 0 -15px;
+    box-shadow:
+      inset 5px 5px 5px rgba(0,0,0,0.07),
+      inset -5px -5px 5px rgba(255,255,255,0.7);
+  }
+  
+  .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .info {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .info .song {
+    margin: 0 0 13px 0;
+    width: 200px;
+    line-height: 2vw;
+    font-size: 1em;
+    color: #222e51;
+  }
+  
+  .info .artist {
+    margin: 0;
+    font-size: 13px;
+    font-weight: normal;
+    color: #8f95a4;
+  }
+  
+  .time {
+    position: relative;
+    width: 100%;
+    height: 16px;
+    border-radius: 1vw;
+    box-shadow:
+      9px 9px 9px rgba(0,0,0,0.05),
+      -9px -9px 9px rgba(255,255,255,0.5),
+      inset 4px 4px 4px rgba(0,0,0,0.05),
+      inset -4px -4px 4px rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+  }
+  
+  .time .bar {
+    width: 100%;
+    height: 12px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 6px;
+    background-color: #fed0b3;
+    box-shadow:
+      2px 2px 2px rgba(0,0,0,0.05),
+      -2px -2px 2px rgba(255,255,255,0.5),
+      inset 3px 3px 3px rgba(255,255,255,0.5),
+      inset -3px -3px 3px rgba(0,0,0,0.05);
+    accent-color: pink;
+  }
+  
+  .control {
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .control-button {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    box-shadow:
+      6px 6px 6px rgba(0,0,0,0.05),
+      -6px -6px 6px rgba(255,255,255,0.6),
+      inset 2px 2px 5px rgba(0,0,0,0.03),
+      inset -2px -2px 5px rgba(255,255,255,0.4);
+    transition: all 0.3s;
+  }
+
+  .control-button:hover{
+    box-shadow:
+        6px 6px 6px rgba(0,0,0,0.05),
+        -6px -6px 6px rgba(255,255,255,0.6),
+        inset 3px 3px 3px rgba(0,0,0,0.03),
+        inset -3px -3px 3px rgba(223, 223, 223, 0.4);
+  }
+
+  .control-button:active {
+    box-shadow:
+        6px 6px 6px rgba(0,0,0,0.05),
+        -6px -6px 6px rgba(255,255,255,0.6),
+        inset 8px 8px 8px rgba(0,0,0,0.05),
+        inset -8px -8px 8px rgba(255,255,255,0.6);
+  }
+
+  .control-button img{
+      width: 22px;
+      padding: 1px;
+  }
+  
+  .play-button {
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  .play-button i{
+      font-size: 25px;
+  }
+
+  .playbar-minimum{
+      position: fixed;
+      cursor: pointer;
+      top: 20vw;
+      left: 98%;
+      background-color: #f1f8fd;
+      padding-right: 1.5em;
+      border-radius: 6px;
+      padding-top: 0.1em;
+      padding-bottom: 0.1em;
+      box-shadow:
+        2px 2px 2px rgba(0,0,0,0.05),
+        -2px -2px 2px rgba(255,255,255,0.5),
+        inset 3px 3px 3px rgba(255,255,255,0.5),
+        inset -3px -3px 3px rgba(0,0,0,0.05);
+  }
+
+  .vol-button{
+      position: fixed;
+      padding: 3px;
+      display: flex;
+      top: 35%;
+      right: 4%;
+      background-color: #dddddd;
+      border-radius: 10px;
+  }
+
+  .vol-button img{
+      cursor: pointer;
+  }
+
+  .hide{
+      display: none;
+  }
+
+  .rotate{
+      animation: rotation 5s infinite linear;
+  }
+
+  @keyframes rotation{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+  }
+/* ------------------------------------------------------------------------------------------ */
+
+/* fav-page -------------------------------*/
+.no-favsong{
+    text-align: center;
+    display: flex;
+}
+
+.no-favsong p{
+    color: rgb(107, 107, 107);
+}
+
+.go-home{
+    color: rgb(61, 61, 61);
+}
+
+.go-home:hover{
+    color: rgb(87, 87, 87);
+}

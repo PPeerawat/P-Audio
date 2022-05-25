@@ -1,0 +1,77 @@
+<%- include("../partials/header.ejs") %>
+<% let v = 1; %>
+
+<div class="container">
+    <div class="title">
+        <div class="title-name my-5">
+            <p><strong>All artists</strong></p>
+        </div>
+    </div>
+
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Songs</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% artists.forEach(function(artist){
+              let length = 0;
+              v++;
+              artist.songs.forEach(function(song){
+                length++;
+              });%>
+              <tr>
+                <td><img class="p-auto" src="<%= artist.img %>" width="70px" height="70px"></td>
+                <td class="p-4 ps-0"><a href="/artist/<%= artist._id %>" class="linkto-artist"><%= artist.name %></a></td>
+
+                <% if(length === 1 || length === 0){ %>
+                  <td class="p-4 ps-0"><%= length %> song</td>
+                <% } else{ %>
+                  <td class="p-4 ps-0"><%= length %> songs</td>
+                <% } %>
+                <% if(currentUser) { %>
+                  <% if(currentUser.isAdmin === true){ %>
+                  <td>
+                    <div class="btn-group mt-3">
+                      <a href="/artist/<%= artist._id %>/edit" class="btn btn-sm btn-outline-light">Edit</a>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<%= v %>">
+                      Delete
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal<%= v %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Delete artist</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure you want to delete "<strong><%= artist.name %></strong>" ?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form action="/artist/<%= artist._id %>?_method=DELETE" method="POST">
+                              <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </td>
+                  <% } %>
+                <% } %>
+              </tr>
+            <% length = 0;
+            }); %>
+            </tbody>
+        </table>
+</div>
+
+<%- include("../partials/footer.ejs") %>

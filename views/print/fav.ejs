@@ -1,0 +1,83 @@
+<%- include("../partials/header.ejs") %>
+<% let v = 1; %> 
+<div class="container">
+    <div class="info-artist d-flex">
+        <div class="fav-img d-flex">
+            <img src="https://cdn-icons-png.flaticon.com/128/3898/3898699.png" width="100px" height="100px">
+        </div>
+        <div class="fav-info d-inline">
+            <p class="fav-name "><strong>Favorite song</strong></p>
+            <% let length = 0; 
+            user.songs.forEach(function(song){
+                length++;
+            })%>
+            <p class="count-fav-song"><%= length %> songs</p>
+        </div>
+    </div>
+      <% if(length > 0){ %>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Title</th>
+                <th scope="col">Artist</th>
+                <th scope="col"><img src="https://cdn-icons-png.flaticon.com/128/6437/6437573.png" class="align-items-center" height="20px"></th>
+                <th scope="col" class="text-left">Like</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% user.songs.forEach(function(song){ %>
+              <div hidden data-song="<%= song.audio %>" id="current-audio">
+                      
+              </div>
+              <% let format = song.fav;
+                 v++;%>
+              <tr>
+                <td><img class="p-auto" id="img-song" src="<%= song.imgSong %>" width="70px" height="70px"></td>
+                <td class="p-4 ps-0"><a href="/song/<%= song._id %> " class="text-dark linkto-song" id="name-song" ><%= song.nameSong %></a></td>
+                <td class="p-4 ps-0"><a class="linkto-artist" id="name-artist" href="/artist/<%= song.artist.id %>"><%= song.artist.name %></a></td>
+                <td class="p-4 ps-0" id="songlength"></td>
+                <% if(format > 1000){
+                  format = format / 1000; %>
+                  <td class="p-4 px-0 text-left" > <i class="fa fa-heart"></i><%= format %>k </td>
+                <% }else{ %>
+                  <td class="p-4 ps-0 text-left" > <i class="fa fa-heart"></i><%= format %> </td>
+                <% } %>
+                <td>
+                  <% if(currentUser){ %>
+                    <i class="fa fa-play p-4 px-0" id="icon"></i>
+  
+                  <% }else{ %>
+                    <a href="/login"><i class="fa fa-play p-4 px-0 play" id="icon"></i></a>
+                  <% } %>
+                </td>
+                <td>
+                  <form action="/user/unfavorite/<%= song._id %>" method="POST" class="d-inline">
+                      <button class="onfav bg-transparent border-0">
+                          <i class="fa fa-heart mt-4"></i>
+                      </button>
+                  </form>
+                </td>
+                <td>
+                  <div class="dropdown">
+                    <div calss="m-1">
+                      <a href="#" class="three-dots"><i class="fa fa-ellipsis-v mt-4"></i></a>
+                    </div>
+                    <div class="dropdown-content">
+                      <p><a href="#" class="nav-link">Add to my playlist</a></p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <% }) %>
+        </table>
+      <% }else{ %>
+        <div class="no-favsong text-center">
+          <p class="text-center">You don't have favorite song &nbsp;</p>
+          <a href="/" class="d-inline text-center go-home">go to home page</a>
+        </div>
+      <% } %> 
+        
+</div>
+<%- include("../partials/footer.ejs") %> 
